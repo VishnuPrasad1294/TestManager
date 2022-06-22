@@ -8,9 +8,9 @@ import com.TestManager.TestManager.model.Projects;
 
 public interface ProjectRepo extends JpaRepository<Projects, Long>{
 
-	void deleteProjectById(Long projectId);
+	void deleteProjectById(Long id);
 
-	Optional<Projects> findProjectById(Long projectId);
+	Optional<Projects> findProjectById(Long id);
 
 	
 

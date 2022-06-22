@@ -31,9 +31,9 @@ public class ProjectResource {
 		return new ResponseEntity<>(projects, HttpStatus.OK);
 	}
 
-	@GetMapping("/find/{projectId}")
-	public ResponseEntity<Projects> getProjectById(@PathVariable("projectId") Long projectId) {
-		Projects project = projectService.findProjectById(projectId);
+	@GetMapping("/find/{id}")
+	public ResponseEntity<Projects> getProjectById(@PathVariable("id") Long id) {
+		Projects project = projectService.findProjectById(id);
 		return new ResponseEntity<>(project, HttpStatus.OK);
 	}
 
@@ -49,9 +49,9 @@ public class ProjectResource {
 		return new ResponseEntity<>(newProject, HttpStatus.OK);
 	}
 
-	@DeleteMapping("/delete/{projectId}")
-	public ResponseEntity<Projects> deleteEmployee(@PathVariable("projectId") Long projectId) {
-		projectService.deleteProject(projectId);
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<Projects> deleteEmployee(@PathVariable("id") Long id) {
+		projectService.deleteProjectByID(id);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 }

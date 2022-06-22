@@ -13,7 +13,7 @@ public class Projects implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable = false, updatable = false)
-	private Long projectId;
+	private Long id;
 	private String projectName;
 	private String projectDescription;
 	private String imageUrl;
@@ -23,22 +23,24 @@ public class Projects implements Serializable {
 	public Projects() {}
 	
 
-	public Projects(Long projectId, String projectName, String projectDescription, String imageUrl, String projectCode) {
+	public Projects(Long id, String projectName, String projectDescription, String imageUrl, String projectCode) {
 		super();
-		this.projectId = projectId;
+		this.id = id;
 		this.projectName = projectName;
 		this.projectDescription = projectDescription;
 		this.imageUrl = imageUrl;
 		this.projectCode = projectCode;
 	}
-
-	public Long getProjectId() {
-		return projectId;
+	
+	public Long getId() {
+		return id;
 	}
 
-	public void setProjectId(Long projectId) {
-		this.projectId = projectId;
+
+	public void setId(Long id) {
+		this.id = id;
 	}
+
 
 	public String getProjectName() {
 		return projectName;
@@ -74,7 +76,7 @@ public class Projects implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Projects [projectId=" + projectId + ", projectName=" + projectName + ", projectDescription="
+		return "Projects [id=" + id + ", projectName=" + projectName + ", projectDescription="
 				+ projectDescription + ", imageUrl=" + imageUrl + ", projectCode=" + projectCode + "]";
 	}
 

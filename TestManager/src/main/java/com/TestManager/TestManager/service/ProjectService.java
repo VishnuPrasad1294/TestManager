@@ -3,6 +3,8 @@ package com.TestManager.TestManager.service;
 import java.util.List;
 import java.util.UUID;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +13,7 @@ import com.TestManager.TestManager.model.Projects;
 import com.TestManager.TestManager.repo.ProjectRepo;
 
 @Service
+@Transactional
 public class ProjectService {
 	private final ProjectRepo projectRepo;
 
@@ -32,12 +35,12 @@ public class ProjectService {
 		return projectRepo.save(project);
 	}
 	
-	public Projects findProjectById(Long projectId) {
-		return projectRepo.findProjectById(projectId).orElseThrow(() -> new projectNotFoundException ("Project by id " + projectId +" is not found"));
+	public Projects findProjectById(Long id) {
+		return projectRepo.findProjectById(id).orElseThrow(() -> new projectNotFoundException ("Project by id " + id +" is not found"));
 	}
 	
-	public void deleteProject(Long projectId) {
-		projectRepo.deleteProjectById(projectId);
+	public void deleteProjectByID(Long id) {
+		projectRepo.deleteProjectById(id);
 	}
 	
 	
